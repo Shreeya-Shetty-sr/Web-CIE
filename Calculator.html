@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin-top: 50px;
+      background-color:rgb(99, 148, 239);
+        display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    input {
+      margin: 5px;
+      padding: 5px;
+    }
+    button {
+      margin: 5px;
+      padding: 10px;
+    }
+    
+    #calculator-box {
+      background-color: white;
+      padding: 20px;
+      border: 2px solid black;
+      border-radius: 10px;
+      text-align: center;
+      width: 300px;
+    }
+
+
+  </style>
+</head>
+<body>
+     <div id="calculator-box">
+   <h2>Simple Calculator</h2>
+<input type="number" id="num1" placeholder="First number">
+<input type="number" id="num2" placeholder="Second number"><br><br>
+<button onclick="calculate('sum')" style="background-color: lightblue;">Sum</button>
+<button onclick="calculate('product')" style="background-color: lightgreen;">Product</button>
+<button onclick="calculate('difference')" style="background-color: lightcoral;">Difference</button>
+<button onclick="calculate('quotient')" style="background-color: khaki;">Quotient</button>
+<button onclick="calculate('remainder')" style="background-color: plum;">Remainder</button>
+<button onclick="calculate('power')" style="background-color: orange;">Power</button>
+<button onclick="calculate('square')" style="background-color: lightgray;">Square</button>
+<button onclick="calculate('sqrt')" style="background-color: lightpink;">Square Root</button>
+<p id="result" style="font-weight: bold; margin-top: 20px;">Result: </p>
+</div>
+<script>
+  function calculate(operation) {
+    let a = parseFloat(document.getElementById("num1").value);
+    let b = parseFloat(document.getElementById("num2").value);
+    let result;
+    switch (operation) {
+      case 'sum':
+        result = a + b;
+        break;
+      case 'product':
+        result = a * b;
+        break;
+      case 'difference':
+        result = a - b;
+        break;
+      case 'quotient':
+        result = b !== 0 ? a / b : "Cannot divide by zero";
+        break;
+      case 'remainder':
+        result = b !== 0 ? a % b : "Cannot divide by zero";
+        break;
+      case 'power':
+        result = Math.pow(a, b);
+        break;
+      case 'square':
+        result = "Square of " + a + " is " + (a * a) + ", Square of " + b + " is " + (b * b);
+        break;
+      case 'sqrt':
+        result = "√" + a + " = " + Math.sqrt(a) + ", √" + b + " = " + Math.sqrt(b);
+        break;
+      default:
+        result = "Invalid operation";
+    }
+ document.getElementById("result").innerText = "Result: " + result;
+  }
+</script>
+</body>
+</head>
